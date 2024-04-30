@@ -52,6 +52,7 @@ public class AccessLogConfig {
     }
 
     private void init() {
+        // DynamicPropertyFactory 是线程安全的，用于属性值多次获取且可能随时改变的情况
         clientLogEnabled = DynamicPropertyFactory
             .getInstance().getBooleanProperty(CLIENT_LOG_ENABLED, false).get();
         serverLogEnabled = DynamicPropertyFactory
